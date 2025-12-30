@@ -1,0 +1,74 @@
+@import "tailwindcss";
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+}
+
+header,
+footer {
+  border: solid;
+  height: 10%;
+}
+
+/*************************************HEADER*********************************************************************************************************************/
+header {
+  display: flex;
+}
+
+.div1 {
+  /* border: solid 1px; */
+  width: 50%;
+}
+
+.div2 {
+  /* border: solid 1px; */
+  width: 50%;
+  display: flex;
+  margin: 10px;
+  gap: 40px;
+  justify-content: end;
+  align-items: center;
+}
+
+/*************************************FOOTER*********************************************************************************************************************/
+
+footer {
+  padding-top: 1rem;
+  text-align: end;
+  justify-content: end;
+}
+
+/*************************************HOMEPAGE*********************************************************************************************************************/
+
+.home {
+  display: flex;
+  height: 100%;
+  border: solid 1px;
+}
+
+.home-me {
+  width: 50%;
+  height: 100%;
+  border: solid 1px;
+  justify-content: center;
+}
+
+.home-photo {
+  width: 50%;
+  height: 100%;
+  border: solid 1px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
