@@ -84,13 +84,20 @@ jobs:
           npm install
           npm run build
         # run: {{ steps.detect-package-manager.outputs.runner }} next build
+      - name: Prepare Pages content
+        run: |
+          mkdir -p pages
+          cp -r my-portofolio/out pages/my-portofolio
+          cp -r nj-test-website pages/nj-test-website
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: my-portofolio/out
+          path: pages
+
 
   # Deployment job
-  deploy:
+  deploy-nextjs:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
