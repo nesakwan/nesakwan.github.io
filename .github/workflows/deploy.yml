@@ -1,0 +1,41 @@
+name: Deploy Multiple Apps to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      # Setup Node pour Next.js
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20
+
+      - name: Install Next.js deps
+        run: |
+          cd my-portofolio
+          npm ci
+
+      - name: Build and export Next.js app
+        run: |
+          cd my-portofolio
+          npm run build
+          npm run export
+
+      # Déploiement GitHub Pages
+      - name: Deploy apps
+        uses: peaceiris/actions-gh-pages@v6
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: |
+            my-portofolio/out
+            nj-test-website
+          destination_dir: |
+            my-portofolio
+            nj-test-website
