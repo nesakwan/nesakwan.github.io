@@ -9,29 +9,23 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      # 1️⃣ Récupérer le code
+      # 1️⃣ Checkout
       - uses: actions/checkout@v3
 
-      # 2️⃣ Installer Node.js pour Next.js
+      # 2️⃣ Setup Node
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
           node-version: 20
 
-      # 3️⃣ Installer les dépendances de Next.js
-      - name: Install Next.js deps
+      # 3️⃣ Build Next.js app
+      - name: Build Next.js app
         run: |
           cd my-portofolio
           npm ci
+          npm run build   # next build génère automatiquement out/
 
-      # 4️⃣ Build + export statique Next.js
-      - name: Build and export Next.js app
-        run: |
-          cd my-portofolio
-          npm run build
-          npm run export
-
-      # 5️⃣ Déploiement GitHub Pages
+      # 4️⃣ Déploiement GitHub Pages
       - name: Deploy apps to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
