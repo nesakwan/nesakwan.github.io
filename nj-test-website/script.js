@@ -75,31 +75,31 @@ animate();
 
 
 // Routage
-const divCentral = document.getElementById("div-central")
+// const divCentral = document.getElementById("div-central")
 
-// Intercepter tous les liens
-document.addEventListener("click", e => {
-  const link = e.target.closest("a[data-link]");
-  if (!link) return;
-  e.preventDefault();
-  navigate(link.getAttribute("href"));
-});
+// // Intercepter tous les liens
+// document.addEventListener("click", e => {
+//   const link = e.target.closest("a[data-link]");
+//   if (!link) return;
+//   e.preventDefault();
+//   navigate(link.getAttribute("href"));
+// });
 
-function navigate(url) {
-  history.pushState({}, "", url);
-  loadPage(url);
-}
+// function navigate(url) {
+//   history.pushState({}, "", url);
+//   loadPage(url);
+// }
 
-function loadPage(url) {
-  let page = url.replace("/", "") || "home"; // page par défaut = home
-  fetch(`${page}.html`)
-    .then(res => { if(!res.ok) throw new Error("404"); return res.text(); })
-    .then(html => { divCentral.innerHTML = html; })
-    .catch(()=>{ divCentral.innerHTML="<h1>404</h1>"; });
-}
+// function loadPage(url) {
+//   let page = url.replace("/", "") || "home"; // page par défaut = home
+//   fetch(`${page}.html`)
+//     .then(res => { if(!res.ok) throw new Error("404"); return res.text(); })
+//     .then(html => { divCentral.innerHTML = html; })
+//     .catch(()=>{ divCentral.innerHTML="<h1>404</h1>"; });
+// }
 
-// Back / forward navigateur
-window.addEventListener("popstate", () => loadPage(location.pathname));
+// // Back / forward navigateur
+// window.addEventListener("popstate", () => loadPage(location.pathname));
 
-// Premier chargement
-loadPage(location.pathname);
+// // Premier chargement
+// loadPage(location.pathname);
