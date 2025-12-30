@@ -1,7 +1,17 @@
-body{
-    background-color: rgb(189, 192, 207);
+/* html, body {
+  margin: 0;
+  padding: 0;
+  background: black;
+  overflow: hidden;
 }
 
-h1{
-    color: blue;
+canvas {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+} */
+
+#div-central{
+    margin-left: 40%;
+    margin-top: 10%;
 }
